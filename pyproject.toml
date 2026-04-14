@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rag-chatbot"
+version = "0.1.0"
+description = "A RAG-based chatbot using LangChain and FAISS"
+requires-python = ">=3.11"
+authors = [
+    {name = "Developer", email = "dev@example.com"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+dependencies = [
+    "langchain>=0.1.0",
+    "langchain-community>=0.0.0",
+    "langchain-groq>=0.1.0",
+    "langchain-huggingface>=0.0.0",
+    "langchain-text-splitters>=0.0.0",
+    "faiss-cpu>=1.7.4",
+    "pypdf>=4.0.0",
+    "groq>=0.4.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "streamlit>=1.28.0",
+    "reportlab>=4.0.0",
+    "sentence-transformers>=2.0.0",
+    "speechrecognition>=3.10.0",
+    "pyttsx3>=2.90",
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+]
+
+[tool.hatch.envs.default]
+dependencies = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.11"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
