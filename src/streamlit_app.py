@@ -152,16 +152,6 @@ def main():
     with st.sidebar:
         st.header("⚙️ Settings")
 
-        # Configuration display
-        st.subheader("Configuration")
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Data Directory", str(DATA_DIR))
-        with col2:
-            st.metric("Vector Store", "FAISS")
-
-        st.divider()
-
         # Vector store status
         st.subheader("Vector Store Status")
         vector_store_status = "✅ Ready" if st.session_state.vector_store_loaded else "❌ Not Loaded"

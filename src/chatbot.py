@@ -1,7 +1,7 @@
 """Main RAG Chatbot module."""
 
 from typing import Optional
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from src.config import LLM_MODEL
@@ -21,8 +21,8 @@ class RAGChatbot:
         self.vector_store = vector_store
         self.temperature = temperature
         
-        # Initialize LLM
-        self.llm = ChatGroq(
+        # Initialize LLM (OpenAI)
+        self.llm = ChatOpenAI(
             model=LLM_MODEL,
             temperature=temperature,
         )

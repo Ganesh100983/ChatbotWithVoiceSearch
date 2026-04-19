@@ -1,8 +1,13 @@
 """Configuration module for RAG Chatbot."""
 
+
 import os
+import warnings
 from pathlib import Path
 from dotenv import load_dotenv
+
+# Suppress all warnings globally (including HuggingFace and deprecation warnings)
+warnings.filterwarnings("ignore")
 
 # Load environment variables
 load_dotenv()
@@ -13,8 +18,10 @@ DATA_DIR = PROJECT_ROOT / "data"
 VECTOR_STORE_PATH = PROJECT_ROOT / "faiss_index"
 
 # API Configuration
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-LLM_MODEL = os.getenv("LLM_MODEL", "mixtral-8x7b-32768")
+
+# OpenAI API Configuration
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+LLM_MODEL = os.getenv("LLM_MODEL", "gpt-5-nano")
 
 # Vector Store Configuration
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1000"))
@@ -27,6 +34,6 @@ VECTOR_STORE_PATH.mkdir(exist_ok=True)
 
 def validate_config():
     """Validate essential configuration."""
-    if not GROQ_API_KEY:
-        raise ValueError("GROQ_API_KEY is not set. Please check your .env file.")
+    if not OPENAI_API_KEY:
+        raise ValueError("OPENAI_API_KEY is not set. Please check your .env file.")
     return True
