@@ -41,7 +41,6 @@ htmlcov/
 .tox/
 
 # Environment variables
-.env
 .env.local
 
 # Data and models

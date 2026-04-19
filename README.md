@@ -1,10 +1,10 @@
 # 🤖 RAG Chatbot with Voice Features
 
-A sophisticated Retrieval Augmented Generation (RAG) chatbot built with LangChain, FAISS, and Groq, featuring advanced voice input and text-to-speech capabilities.
+A sophisticated Retrieval Augmented Generation (RAG) chatbot built with LangChain, FAISS, and OpenAI, featuring advanced voice input and text-to-speech capabilities.
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
-[![Groq](https://img.shields.io/badge/Groq-API-orange.svg)](https://groq.com)
+[![OpenAI](https://img.shields.io/badge/OpenAI-API-blue.svg)](https://openai.com)
 
 ## ✨ Features
 
@@ -12,6 +12,7 @@ A sophisticated Retrieval Augmented Generation (RAG) chatbot built with LangChai
 - **📄 PDF Processing**: Intelligent document loading and text chunking
 - **🔍 Vector Search**: FAISS-powered semantic similarity search
 - **🧠 LLM Integration**: Powered by Groq's ultra-fast inference models
+- **🧠 LLM Integration**: Powered by OpenAI's GPT models (gpt-3.5-turbo, gpt-4, etc.)
 - **📚 Source Citations**: Transparent answer sourcing with page references
 - **💾 Persistent Storage**: Automatic vector store saving/loading
 
@@ -34,7 +35,7 @@ A sophisticated Retrieval Augmented Generation (RAG) chatbot built with LangChai
 ### Prerequisites
 - **Python 3.11+**
 - **UV package manager**
-- **Groq API key** (free at [console.groq.com](https://console.groq.com))
+- **OpenAI API key** (get at [platform.openai.com](https://platform.openai.com))
 - **Microphone** (for voice input)
 - **Speakers/Headphones** (for text-to-speech)
 
@@ -65,9 +66,9 @@ A sophisticated Retrieval Augmented Generation (RAG) chatbot built with LangChai
    ```bash
    GROQ_API_KEY=gsk_your_api_key_here
    LLM_MODEL=llama3-70b-8192
-   CHUNK_SIZE=1000
+    Edit `.env` with your OpenAI API key:
    CHUNK_OVERLAP=200
-   ```
+    OPENAI_API_KEY=sk-your_api_key_here
 
 4. **Optional: Enhanced Voice Support**
    ```bash
@@ -123,7 +124,7 @@ uv run streamlit run src/streamlit_app.py
 | `LLM_MODEL` | Groq model selection | `llama3-70b-8192` | ❌ No |
 | `CHUNK_SIZE` | Document chunk size | `1000` | ❌ No |
 | `CHUNK_OVERLAP` | Chunk overlap tokens | `200` | ❌ No |
-
+| `OPENAI_API_KEY` | Your OpenAI API key | - | ✅ Yes |
 ### Available Groq Models
 
 | Model | Context | Speed | Best For |
